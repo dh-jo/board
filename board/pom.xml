@@ -7,19 +7,31 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>board Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<ver.springframework>4.3.5.RELEASE</ver.springframework>
+		<ver.log4j>1.2.14</ver.log4j>
+		<ver.servlet-api>3.1.0</ver.servlet-api>
+		<ver.junit>3.8.1</ver.junit>
+		<ver.mvn-war>2.4</ver.mvn-war>
+		<ver.mvn-compile>3.1</ver.mvn-compile>
+		<ver.java>1.8</ver.java>
+	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-framework-bom</artifactId>
-				<version>4.3.5.RELEASE</version>
+				<version>${ver.springframework}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
-				<version>1.2.14</version>
+				<version>${ver.log4j}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -27,13 +39,13 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${ver.servlet-api}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${ver.junit}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -51,17 +63,18 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.2</version>
+				<version>${ver.mvn-war}</version>
 				<configuration>
 					<warSourceDirectory>${basedir}/WebContent</warSourceDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${ver.mvn-compile}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${ver.java}</source>
+					<target>${ver.java}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
